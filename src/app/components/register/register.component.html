@@ -1,0 +1,83 @@
+<br><br>
+<div class="box container has-background-white"> 
+  <form class="container is-fluid" (submit) = "onSubmit()">
+    <!-- <div class="field">
+      <label class="label">First Name</label>
+      <input type="text" class="text" class="input">
+    </div>
+    <br>
+    <div class="field">
+      <label class="label">Last Name</label>
+      <input type="text" class="text" class="input">
+    </div>
+    <br> -->
+    <h1 class="title has-text-info">Sign Up for free now</h1>
+    <br>
+    <label class="label">Email</label>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input 
+          type="email" 
+          class="input"
+          name="email"
+          #userEmail = "ngModel"
+          [(ngModel)] = "email"
+          [ngClass] = "{ 'is-danger' : userEmail.errors && userEmail.touched}"
+          required
+          pattern = "^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+        > 
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>     
+      </p>
+    </div>
+    <!-- <div [hidden] = "userEmail.errors?.required" class="help is-danger">* Email is required</div> -->
+    <br>
+<!-- 
+
+    type="text"
+    class="form-control"
+    name="firstName"
+    #clientFirstName="ngModel"
+    [(ngModel)] = "client.firstName"
+    [ngClass] = "{'is-invalid':clientFirstName.errors && clientFirstName.touched}"
+    minlength="2"
+    required -->
+
+
+
+
+    <!-- <div class="field">
+      <label class="label">User handle</label>
+      <input type="text" class="text" class="input">
+    </div> -->
+    <label class="label">Password</label>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input 
+        [(ngModel)] = "password"
+        name = "password"
+        
+        type="password" 
+        class="input">
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </p>
+    </div>
+    <!-- <div class="field">
+      <label class="label">Conform Password</label>
+      <input type="password" class="text" class="input">
+    </div> -->
+    <br><br>
+    <div class="columns">
+      <div class="column">
+        <input type="submit" value = "SignUp" class="button is-info is-outlined is-fullwidth">
+      </div>
+      <div class="column">
+        <div class="button is-fullwidth is-outlined is-danger"><span class="icon" style="padding-right:20px"><i class="fa fa-google"></i></span>Login with google</div>
+      </div>
+    </div>
+    <br><br>
+  </form>
+</div>

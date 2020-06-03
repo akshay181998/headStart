@@ -1,0 +1,35 @@
+<br><br>
+<div class="box container"> 
+  <form class="container is-fluid" (submit) = "onSubmit()">
+    <div class="title has-text-info">Log in</div>
+    <div class="field">
+      <label class="label">Email</label>
+      <input 
+      type="email"
+      class="input"
+      [(ngModel)] = "email"
+      name = "email"
+      required
+      >
+    </div>
+    <div class="field">
+      <label class="label">Password</label>
+      <input 
+      type= "password" 
+      class= "input"
+      name= "password"
+      [(ngModel)] = "password"
+      >
+    </div>
+    <br>
+    <div class="columns">
+      <div class="column">
+        <input type="submit" class="button is-info is-outlined is-fullwidth">
+      </div>
+      <div class="column">
+        <div class="button is-fullwidth is-outlined is-danger"><span class="icon" style="padding-right:20px"><i class="fa fa-google"></i></span>Login with google</div>
+      </div>
+    </div>
+    <br><br>
+  </form>
+</div>

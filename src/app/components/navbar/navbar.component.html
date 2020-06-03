@@ -1,0 +1,75 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#">
+      <h1 class="title has-text-info">HeadStart <i class="fa fa-level-up"></i></h1>
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navMenu" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" routerLink = "/blogs">
+        Experience
+      </a>
+      <!-- <li class="nav-item">
+        <a routerLink="/blogs" class="nav-link">Blogs</a>
+      </li> -->
+      <a class="navbar-item" routerLink = "/article">
+        Article
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" routerLink = "/writearticle">
+            Write article
+          </a>
+          <a class="navbar-item" routerLink = "/download">
+            Download
+          </a>
+          <a class="navbar-item" routerLink = "/aboutus">
+            About us
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item" href="#">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end" *ngIf = "!isLoggedIn">
+      <div class="navbar-item">
+        <!-- <div class="buttons"> -->
+          <a class="has-text-primary" routerLink = "/register" style="margin-right: 30px">
+            Register
+          </a>
+          <a class="has-text-info" routerLink = "/login">
+            Log in
+          </a>
+        <!-- </div> -->
+      </div>
+    </div>
+    <div class="navbar-end" *ngIf = "isLoggedIn">
+      <div class="navbar-item">
+        <!-- <div class="buttons"> -->
+          <a class="has-text-primary" routerLink = "/profile/personal" style="margin-right: 30px">
+            Profile
+          </a>
+          <a class="has-text-danger" href="#" (click) = 
+          "onClickLogOut()">
+            Log out  
+          </a>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</nav>

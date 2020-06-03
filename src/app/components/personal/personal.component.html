@@ -1,0 +1,63 @@
+<br>
+<br>
+<h1 class="title is-size-3">Personal Information</h1>
+<hr>  
+<form  #profileForm = "ngForm" (ngSubmit) = "onSubmit(profileForm)" style="width: 500px;">
+  <label 
+  for="firstName" class="label">First Name
+  </label>
+  <input 
+  type="text" 
+  class="input"
+  name="firstName"
+  #profileFirstName = "ngModel"
+  [(ngModel)] = "firstName"
+  >
+  <br><br>
+  <label for="lastName" class="label">Last Name</label>
+  <input 
+  type="text" 
+  class="input"
+  name = "lastName"
+  #profileLastName = "ngModel"
+  [(ngModel)] = "lastName"
+  >
+  <br><br>
+  <label for="dob" class="label">Date of birth</label>
+  <input 
+  type="date" 
+  name="dob"
+  #profileDob = "ngModel"
+  [(ngModel)] = "dob"
+  class="input"
+  >
+  <br><br>
+  <label for="college" class="label">College</label>
+  <input 
+  type="text" 
+  name="college" 
+  class="input"
+  #profileCollge = "ngModel"
+  [(ngModel)] = "college"
+  >
+  <br><br>
+  <label for="batch" class="label">Batch</label>
+  <input 
+  type="text" 
+  name="batch" 
+  class="input"
+  #profileBatch = "ngModel"
+  [(ngModel)] = "batch"
+  >
+  <br><br>
+  <label for="branch" class="label">Branch</label>
+  <input 
+  type="text"
+  class="input"
+  name="branch"
+  #profileBranch = "ngModel"
+  [(ngModel)] = "branch"
+  >
+  <br><br><br>
+  <input type="submit" value="change" class="button is-primary">
+</form>

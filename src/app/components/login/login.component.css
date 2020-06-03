@@ -1,0 +1,10 @@
+.is-fluid {
+    padding-left:80px;
+    padding-right:80px;
+    padding-top:50px;
+}
+
+.box {
+    max-width: 600px;
+    border: .5px solid rgb(207, 207, 207);
+}
