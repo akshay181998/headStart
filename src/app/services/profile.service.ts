@@ -27,4 +27,22 @@ export class ProfileService {
     //  this.afs.collection(`profile/${id}`).add(profile);
     this.profileCollection.doc(id).set(profile);
    }
+
+   getProfile(id: string): Observable<Profile> {
+    this.profileDoc  = this.afs.doc<Profile>(`profile/${id}`);
+    this.profile = this.profileDoc.snapshotChanges().pipe(map(action => {
+     if (action.payload.exists === false) {
+       return null;
+     } else {
+       const data = action.payload.data() as Profile;
+       data.id = action.payload.id;
+       // console.log()
+       return data;
+     }
+    }
+    ));
+   //  console.log(this.article);
+    return this.profile;
+  }
+ 
 }

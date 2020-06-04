@@ -5,12 +5,14 @@
     <div class="column is-3 has-background-light">
       <br>
       <figure class="image" style="margin-left:16%">
-        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" style="width: 210px; height: 210px;">
+        <img class="is-rounded" src="{{ pro.img }}" style="width: 210px; height: 210px;">
       </figure>
       <br>
       <div class="file" style="margin-left:24%">
         <label class="file-label">
-          <input class="file-input" type="file" name="resume">
+          <input class="file-input" type="file" name="resume"
+          (change) = "uploadFile($event)"
+          >
             <span class="file-label has-text-info is-size-5">
               change the picture
             </span>

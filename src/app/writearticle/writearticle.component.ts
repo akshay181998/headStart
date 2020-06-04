@@ -7,6 +7,9 @@ import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { AuthService } from '../services/auth.service';
+import { ProfileService } from '../../app/services/profile.service';
+import { Profile } from '../models/Profile';
 
 @Component({
   selector: 'app-writearticle',
@@ -15,9 +18,10 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class WritearticleComponent implements OnInit {
   article: Article = {
-    handle: '',
+    uid: '',
+    date: 0,
     title: '',
-    article: '',
+    content: '',
     img: ''
   };
   uploadPercent: Observable<number>;
@@ -26,7 +30,9 @@ export class WritearticleComponent implements OnInit {
   chg = false;
   uploadPer: number;
   file: string;
+  author: Profile;
   filePath: string;
+  pfId: string;
   fileRef: any;
   task: any;
   change: number;
@@ -53,19 +59,31 @@ export class WritearticleComponent implements OnInit {
     private articleService: ArticleServiceService,
     private storage: AngularFireStorage,
     private router: Router,
-    private flashMessage: FlashMessagesService
-
+    private flashMessage: FlashMessagesService,
+    private authService: AuthService,
+    private profileService: ProfileService
   ) {
   }
 
   ngOnInit() {
+    this.authService.getAuth().subscribe(auth => {
+      if ( auth ) {
+        this.pfId = auth.uid;
+        this.profileService.getProfile(this.pfId).subscribe(pro => {
+          this.author = pro;
+        });
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
   onSubmit({ value , valid }: { value: Article , valid: boolean }) {
     // console.log(this.editorForm.get('editor').value);
     // this.article.handle = 'akshay1909';
-    value.handle = 'alkl';
-
+    value.uid = this.author.id;
+    value.name = this.author.firstName + ' ' + this.author.lastName;
+    value.date = new Date().toDateString();
     // get notified when the download URL is available
     this.task.snapshotChanges().pipe(
         finalize (() => this.downloadURL = this.fileRef.getDownloadURL() )

@@ -21,6 +21,7 @@ export class PersonalComponent implements OnInit {
   college: string;
   batch: string;
   branch: string;
+  img: string;
 
   @ViewChild('profileForm') form: any;
   constructor(
@@ -37,19 +38,30 @@ export class PersonalComponent implements OnInit {
         console.log(auth.email);
         this.email = auth.email;
         this.id = auth.uid;
-        // console.log(this.profile);
+        this.profileService.getProfile(this.id).subscribe(pro => {
+          this.email = pro.email;
+          this.firstName = pro.firstName;
+          this.lastName = pro.lastName;
+          this.dob = pro.dob;
+          this.college = pro.college;
+          this.batch = pro.batch;
+          this.branch = pro.branch;
+          this.img = pro.img;
+        });
       } else {
         this.router.navigate(['/login']);
       }
     });
+
+
   }
 
   onSubmit ({value , valid}: {value: Profile , valid: boolean}) {
     console.log('clicked');
-    // console.log(this.profile);
     console.log(value);
     value.email = this.email;
     value.id = this.id;
+    value.img = this.img;
     console.log(value.dob);
     this.profileService.newProfile(value, this.id);
   }

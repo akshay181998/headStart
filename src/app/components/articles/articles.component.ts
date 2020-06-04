@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/Article';
 import { ArticleServiceService } from '../../services/article-service.service';
 import { of } from 'rxjs';
-
+import { ProfileService } from '../../services/profile.service';
+import { Profile } from 'src/app/models/Profile';
 
 @Component({
   selector: 'app-articles',
@@ -11,22 +12,14 @@ import { of } from 'rxjs';
 })
 export class ArticlesComponent implements OnInit {
   articles: Article[];
+  author: Profile;
   constructor(
-    private articleService: ArticleServiceService
+    private articleService: ArticleServiceService,
      ) { }
 
   ngOnInit() {
     this.articleService.getArticles().subscribe( articles => {
-      // console.log(articles);
       this.articles = articles;
-      // for ( const ar of this.articles) {
-      //   if ( ar.img === '') {
-      //     ar.img = '../../assets/p.jpeg';
-      //   }
-      //   console.log(ar.img);
-      // }
     });
   }
-
-
 }

@@ -1,26 +1,16 @@
 <br><br>
 <div class="container" style="font-family: serif; max-width:800px">
      <h1 class="title has-text-centered has-text-weight-bold is-size-1">{{ article.title }}</h1>
-     <!-- <div class="columns">
-       <div class="column is-2">
-          <figure class="image">
-               <img class="is-rounded" src="{{ article.img }}" style="width:60px; height:60px; overflow:hidden;">
-          </figure> 
-       </div>
-       <div class="column">
-          <h1>{{ article.handle }}</h1>
-     </div>
-     </div>  -->
      <article class="media">
           <figure class="media-left">
             <p class="image is-64x64">
-              <img src="{{ article.img }}">
+              <img src="{{ author.img }}">
             </p>
           </figure>
           <div class="media-content">
             <div class="content">
               <p>
-                <strong class="is-3">John Smith</strong>
+                <strong class="is-3">{{ article.name }}</strong>
                 <br>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
               </p>
@@ -43,7 +33,7 @@
      <br><br>
      <img src="{{ article.img }}" style="margin-left:25%; width:400px;">
      <br><br>
-     <div class="container" [innerHTML]="article.article"></div>
+     <div class="container" [innerHTML]="article.content"></div>
      <br><hr><br>
      <article class="media">
           <figure class="media-left">

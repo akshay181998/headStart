@@ -1,7 +1,9 @@
 export interface Article {
    id?: string;
-   handle?: string;
+   name?: string;
+   uid?: string;
    title?: string;
-   article?: string;
+   content?: string;
    img?: string;
+   date?: any;
 }

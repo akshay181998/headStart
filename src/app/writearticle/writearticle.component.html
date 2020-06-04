@@ -16,9 +16,9 @@
       <div class="field">
         <label for="detail" class="label">Description</label>
         <quill-editor
-        name="article"
+        name="content"
         #articleDesc = "ngModel"
-        [(ngModel)] = "article.article"
+        [(ngModel)] = "article.content"
         [modules]="editorOptions"
         [style] = "{minHeight: '250px'}"
         ></quill-editor>
