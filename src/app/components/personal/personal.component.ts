@@ -63,7 +63,7 @@ export class PersonalComponent implements OnInit {
     value.id = this.id;
     value.img = this.img;
     console.log(value.dob);
-    this.profileService.newProfile(value, this.id);
+    this.profileService.updateProfile(value, this.id);
   }
 
 }

@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { Article } from '../models/Article';
 import { map } from 'rxjs/operators';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ArticleServiceService {
   articleDoc: AngularFirestoreDocument<Article>;
   ars: Observable<Article[]>;
   article: Observable<Article>;
-
+  artId: string;
   constructor(private afs: AngularFirestore) {
     this.articleCollection = this.afs.collection('article', ref => ref.orderBy('title', 'asc'));
   }
@@ -50,7 +51,21 @@ export class ArticleServiceService {
 
 
 
- newArticle(article: Article) {
-   this.articleCollection.add(article);
+ newArticle(article: Article): any {
+  return this.articleCollection.add(article);
+  //  tmp.resolve((e) => {
+  //    this.artId = e;
+  //  }).then(() => {
+  //    return this.artId;
+  //  });
+
+  //  then(function(e) {
+  //   this.artId = e.id;
+  //   return e.id;
+  // }).then (
+  //   return this.artId;
+  // );
+  //  return this.artId;
  }
+
 }

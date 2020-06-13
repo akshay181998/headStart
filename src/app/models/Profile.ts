@@ -8,6 +8,6 @@ export interface Profile {
      college?: string;
      batch?: string;
      branch?: string;
-     article?: string[];
+     articleId?: string[];
      qna?: string[];
 }

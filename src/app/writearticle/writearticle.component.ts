@@ -93,11 +93,16 @@ export class WritearticleComponent implements OnInit {
     // console.log(this.url);
     setTimeout(() => {
       value.img = this.url;
-      console.log(value.img);
-      this.articleService.newArticle(value);
+      // console.log(value.img);
+      this.articleService.newArticle(value).then((e) => {
+        console.log(e.id);
+        this.author.articleId.push(e.id);
+        // console.log(this.author);
+        this.profileService.newProfile(this.author , this.author.id);
+      });
       this.router.navigate(['/article']);
     }, 1000);
-    console.log(value);
+    // console.log(value);
     this.flashMessage.show('You are logged in now' , {
       cssClass: 'notification is-success', timeout: 2000
     });

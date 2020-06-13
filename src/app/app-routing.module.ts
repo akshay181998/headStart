@@ -13,6 +13,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PersonalComponent } from './components/personal/personal.component';
 import { QnaComponent } from '../app/components/profile/qna/qna.component';
 import { IndiArticleComponent } from '../app/components/profile/indi-article/indi-article.component';
+import { WriteComponent } from './components/write/write.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'writearticle', component: WritearticleComponent },
   { path: 'download', component: DownloadsComponent },
   { path: 'aboutus', component: AboutusComponent },
+  { path: 'writeqna', component: WriteComponent },
   {
     path: 'profile',
     component: ProfileComponent,

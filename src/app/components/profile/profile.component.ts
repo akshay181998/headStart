@@ -62,7 +62,7 @@ export class ProfileComponent implements OnInit {
       this.url = url;
       this.pro.img = this.url;
       console.log(this.pro);
-      this.profileService.newProfile(this.pro , this.pro.id);
+      this.profileService.updateProfile(this.pro , this.pro.id);
       console.log(url);
     });
     // console.log(this.url);

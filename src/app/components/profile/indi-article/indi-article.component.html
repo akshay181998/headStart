@@ -1,3 +1,23 @@
-<p>
-  indi-article works!
-</p>
+<div class="container">
+  <div class="container" *ngFor = "let article of articles">
+    <div class="contaier" style="border: .5px #c3c3c3 solid; padding:15px">
+      <div class="title is-3 has-text-left" style="border-bottom: .5px #c3c3c3 solid; padding-bottom:10px;">{{ article.title }}</div>
+      <div class="subtitle" style="max-height:100px; overflow:hidden;" [innerHtml] = "article.content">
+        <!-- {{ article.content }} -->
+      </div>
+      {{ article.date }}
+      <nav class="level" style="border-top: .5px #c3c3c3 solid; padding-top:10px;">
+        <div class="level-item has-text-centered">
+          <a href="#">View</a>
+        </div>
+        <div class="level-item has-text-centered">
+          <a href="#">edit</a>
+        </div>
+        <div class="level-item has-text-centered">
+          <a href="#">Delete</a>
+        </div>
+      </nav>
+    </div>
+    <br><br>
+  </div>
+</div>

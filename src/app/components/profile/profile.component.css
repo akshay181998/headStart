@@ -2,3 +2,11 @@
      border: solid 2px #3daaec; 
      color: #3daaec;
 }
+
+.box {
+     border: .5px solid #c3c3c3;
+}
+
+.columns {
+     padding:15px;
+}

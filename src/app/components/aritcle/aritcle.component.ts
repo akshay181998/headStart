@@ -37,7 +37,7 @@ export class AritcleComponent implements OnInit {
       this.article = article;
       // console.log(this.article);
       this.profileService.getProfile(this.article.uid).subscribe(pro => {
-        console.log(pro);
+        // console.log(pro);
         this.author = pro;
       });
     });

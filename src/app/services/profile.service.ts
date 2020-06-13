@@ -28,6 +28,13 @@ export class ProfileService {
     this.profileCollection.doc(id).set(profile);
    }
 
+   updateProfile(profile: Profile , id: string) {
+    // this.clientDoc = this.afs.doc(`client/${client.id}`);
+    // this.clientDoc.update(client);
+    this.profileDoc = this.afs.doc(`profile/${profile.id}`);
+    this.profileDoc.update(profile);
+   }
+
    getProfile(id: string): Observable<Profile> {
     this.profileDoc  = this.afs.doc<Profile>(`profile/${id}`);
     this.profile = this.profileDoc.snapshotChanges().pipe(map(action => {
