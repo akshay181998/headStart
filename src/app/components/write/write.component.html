@@ -1,23 +1,29 @@
 <br><br>
 <div class="box">
   <div class="card-body">
-    <form #articleForm = "ngForm" (ngSubmit) = "onSubmit(articleForm)">
+    <form #questionForm = "ngForm" (ngSubmit) = "onSubmit(questionForm)">
       <div class="field">
         <label for="title" class="label">Title</label>
         <input 
         type="text" 
         class="input"
         name="title"
-        #articleTitle = "ngModel"
-        [(ngModel)] = "article.title"
+        #questionTitle = "ngModel"
+        [(ngModel)] = "question.title"
         >
       </div>
       <br>
       <label for="category" class="label">Category</label>
       <div class="select">
-        <select name="" id="">
+        <select 
+        name="category" 
+        id="category"
+        #questionCategory = "ngModel"
+        [(ngModel)] = "question.category"
+        >
           <option value="placement">placement</option>
           <option value="exam">Exam</option>
+          <option value="other">Other</option>
         </select>
       </div>
       <br>
@@ -26,8 +32,8 @@
         <label for="detail" class="label">Description</label>
         <quill-editor
         name="content"
-        #articleDesc = "ngModel"
-        [(ngModel)] = "article.content"
+        #questionDesc = "ngModel"
+        [(ngModel)] = "question.description"
         [modules]="editorOptions"
         [style] = "{minHeight: '250px'}"
         ></quill-editor>

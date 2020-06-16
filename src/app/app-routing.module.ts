@@ -14,6 +14,7 @@ import { PersonalComponent } from './components/personal/personal.component';
 import { QnaComponent } from '../app/components/profile/qna/qna.component';
 import { IndiArticleComponent } from '../app/components/profile/indi-article/indi-article.component';
 import { WriteComponent } from './components/write/write.component';
+import { IndiBlogComponent } from './components/indi-blog/indi-blog.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'download', component: DownloadsComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'writeqna', component: WriteComponent },
+  { path: 'blogs/:id', component: IndiBlogComponent },
   {
     path: 'profile',
     component: ProfileComponent,

@@ -4,6 +4,7 @@ export interface Question {
      category?: string;
      description?: string;
      authId?: string;
-     date?: number;
+     date?: any;
      answers?: [];
+     upvote?: number;
 }

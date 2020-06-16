@@ -1,46 +1,57 @@
-<br><br>
+<br>
+<!-- <div class="blk">
+<div class="blk1"> -->
+  <a routerLink = "/article" style="font-size: 1.5rem;"><i class="fa fa-arrow-circle-left"></i> back</a>
+<!-- </div>
+<div class="blk2">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64" >
+        <img src="{{ author.img }}">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong class="is-3">{{ article.name }}</strong>
+          <br>
+          {{ article.date }}
+        </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item">
+            <span class="icon is-small"><i class="fa fa-reply"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fa fa-retweet"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fa fa-heart"></i></span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>  
+</div> -->
+
+
 <div class="container" style="font-family: serif; max-width:800px">
-     <h1 class="title has-text-centered has-text-weight-bold is-size-1">{{ article.title }}</h1>
-     <article class="media">
-          <figure class="media-left">
-            <p class="image is-64x64">
-              <img src="{{ author.img }}">
-            </p>
-          </figure>
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <strong class="is-3">{{ article.name }}</strong>
-                <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-              </p>
-            </div>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                <a class="level-item">
-                  <span class="icon is-small"><i class="fa fa-reply"></i></span>
-                </a>
-                <a class="level-item">
-                  <span class="icon is-small"><i class="fa fa-retweet"></i></span>
-                </a>
-                <a class="level-item">
-                  <span class="icon is-small"><i class="fa fa-heart"></i></span>
-                </a>
-              </div>
-            </nav>
-          </div>
-        </article>
-     <br><br>
-     <img src="{{ article.img }}" style="margin-left:25%; width:400px;">
-     <br><br>
-     <div class="container" [innerHTML]="article.content"></div>
-     <br><hr><br>
-     <article class="media">
-          <figure class="media-left">
-            <p class="image is-64x64">
-              <img src="{{ article.img }}">
-            </p>
-          </figure>
+<br><br>
+      <h1 class="title has-text-centered has-text-weight-bold is-size-1" style="margin-bottom: 15px; text-transform: capitalize;">{{ article.title }}</h1>
+     <img src="{{ article.img }}" style="margin-left: 15%; width:70%">
+     <div class="container" [innerHTML]="article.content" style="width: 90%; margin-top: 0px;"></div>
+    <br>
+     <p class="container" style="width: 90%;">
+      <span style="font-size: 25px; text-transform: capitalize;">{{ article.name }}</span>
+      <br>
+      {{ article.date }}
+    </p>
+     <br>
+     <!-- {{ article.date }} -->
+
+     <article class="media" style="margin: auto; max-width: 90%;">
           <div class="media-content">
             <div class="field">
               <p class="control">

@@ -1,0 +1,58 @@
+<br>
+<a routerLink = "/blogs" style="font-size: 1.5em;"><i class="fa fa-arrow-circle-left"></i> back</a>
+<br><br>
+<div class="container">
+  <h1 class="title is-1 has-text-centered" style="font-family: serif; 
+  text-transform: capitalize;
+  "> {{ question.title }}
+  </h1>
+  <hr>
+  <h1 class="subscript is-5" [innerHtml] = "question.content">
+  </h1>
+  <br><br>
+  <p>{{ question.date }}</p>
+  <br>
+  <div style = "height: 1px; background: black;"> </div>
+
+  <br><br><br> 
+
+  <form 
+  #commentForm = "ngForm"
+  (ngSubmit) = "onSubmit(commentForm)">
+    <article class="media" style="margin: auto; max-width: 90%;">
+      <div class="media-content">
+        <div class="field">
+          <p class="control">
+            <textarea 
+            class="textarea" 
+            placeholder="Add a comment..."
+            name="ans"
+            #ans = "ngModel"
+            [(ngModel)] = "answer.ans"></textarea>
+          </p>
+        </div>
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <input type="submit" value="Comment" class="button is-dark">
+            </div>
+          </div>
+          <div class="level-right">
+            <div class="level-item">
+              <label class="checkbox">
+                <input type="checkbox"> Press enter to submit
+              </label>
+            </div>
+          </div>
+        </nav>
+      </div>
+  </article>    
+  </form>
+
+<br><br>
+  <div class="container"  style="border: 1px solid black">
+    <div class="container" *ngFor = "let ans of answers">
+      <h1 class="subscript">{{ ans.ans }}</h1>
+    </div>
+  </div>
+</div>

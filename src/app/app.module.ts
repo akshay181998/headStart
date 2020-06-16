@@ -33,6 +33,7 @@ import { ArticleServiceService } from '../app/services/article-service.service';
 import { PersonalComponent } from './components/personal/personal.component';
 import { QnaComponent } from './components/profile/qna/qna.component';
 import { IndiArticleComponent } from './components/profile/indi-article/indi-article.component';
+import { IndiBlogComponent } from './components/indi-blog/indi-blog.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { IndiArticleComponent } from './components/profile/indi-article/indi-art
     PersonalComponent,
     QnaComponent,
     IndiArticleComponent,
+    IndiBlogComponent,
   ],
   imports: [
     FormsModule,

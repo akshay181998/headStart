@@ -98,7 +98,7 @@ export class WritearticleComponent implements OnInit {
         console.log(e.id);
         this.author.articleId.push(e.id);
         // console.log(this.author);
-        this.profileService.newProfile(this.author , this.author.id);
+        this.profileService.updateProfile(this.author , this.author.id);
       });
       this.router.navigate(['/article']);
     }, 1000);

@@ -1,0 +1,26 @@
+.content {
+     display:grid;
+     grid-template-columns: 35px auto;
+     border: 1px solid grey; 
+     max-height: 350px;
+     overflow: hidden;
+     margin: 10px;
+}
+
+.left-content {
+     background-color:rgb(90, 90, 90);
+     text-align: center;
+     color: #fff;
+     font-size: 1.3em;
+     padding-top: 15px;
+}
+
+.right-content {
+     padding: 10px;
+     background-color: #fff;
+}
+
+p {
+     max-height: 190px;
+     overflow: hidden;
+}

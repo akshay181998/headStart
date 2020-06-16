@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-downloads',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DownloadsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.authService.getAuth().subscribe(auth => {
+      if (!auth) {
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
 }

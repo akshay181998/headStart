@@ -10,6 +10,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from '../../services/auth.service';
 import { ProfileService } from '../../../app/services/profile.service';
 import { Profile } from '../../models/Profile';
+import { Question } from '../../models/Question';
+import { QuestionService } from '../../services/question.service';
 
 @Component({
   selector: 'app-write',
@@ -18,13 +20,22 @@ import { Profile } from '../../models/Profile';
 })
 export class WriteComponent implements OnInit {
 
-  article: Article = {
-    uid: '',
+  // article: Article = {
+  //   uid: '',
+  //   date: 0,
+  //   title: '',
+  //   content: '',
+  //   img: ''
+  // };
+  question: Question = {
+    id: '',
     date: 0,
     title: '',
-    content: '',
-    img: ''
-  };
+    category: '',
+    description: '',
+    authId: '',
+    answers: []
+  }
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
   url = '';
@@ -62,7 +73,8 @@ export class WriteComponent implements OnInit {
     private router: Router,
     private flashMessage: FlashMessagesService,
     private authService: AuthService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private questionService: QuestionService
   ) {
   }
 
@@ -79,25 +91,19 @@ export class WriteComponent implements OnInit {
     });
   }
 
-  onSubmit({ value , valid }: { value: Article , valid: boolean }) {
-    // console.log(this.editorForm.get('editor').value);
-    // this.article.handle = 'akshay1909';
-    value.uid = this.author.id;
-    value.name = this.author.firstName + ' ' + this.author.lastName;
+  onSubmit({ value , valid }: { value: Question , valid: boolean }) {
+    value.id = this.author.id;
     value.date = new Date().toDateString();
-    // get notified when the download URL is available
-    // console.log(this.url);
-    setTimeout(() => {
-      // console.log(value.img);
-      this.articleService.newArticle(value).then((e) => {
-        console.log(e.id);
-        this.author.articleId.push(e.id);
-        // console.log(this.author);
-        this.profileService.newProfile(this.author , this.author.id);
+    value.answers = this.question.answers;
+    console.log(value);
+    // setTimeout(() => {
+      this.questionService.newQuestion(value).then((e) => {
+        console.log(e);
+        this.author.qna.push(e.id);
+        this.profileService.updateProfile(this.author , this.author.id);
       });
-      this.router.navigate(['/article']);
-    }, 1000);
-    // console.log(value);
+      this.router.navigate(['/blogs']);
+    // }, 1000);
     this.flashMessage.show('You are logged in now' , {
       cssClass: 'notification is-success', timeout: 2000
     });

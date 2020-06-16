@@ -51,5 +51,5 @@ export class ProfileService {
    //  console.log(this.article);
     return this.profile;
   }
- 
+  
 }
