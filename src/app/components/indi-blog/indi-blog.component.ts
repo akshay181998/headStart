@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./indi-blog.component.css']
 })
 export class IndiBlogComponent implements OnInit {
-
+  ansSection: string;
   answer: Answer = {
     qid: '',
     ans: '',
@@ -46,10 +46,11 @@ export class IndiBlogComponent implements OnInit {
       for (i = 0 ; i < this.question.answers.length ; i++) {
         this.answerService.getAnswer(this.question.answers[i]).subscribe(ans => {
           this.answer = ans;
+          // console.log(this.answer);
           this.answers.push(ans);
         });
       }
-      console.log(this.question);
+      // console.log(this.question);
     });
   }
 
@@ -60,13 +61,19 @@ export class IndiBlogComponent implements OnInit {
         this.answer.date = new Date().toDateString();
         value.qid = this.answer.qid;
         value.date = this.answer.date;
-        this.answerService.newAnswer(value).then( (e) => {
-          this.question.answers.push(e.id);
-          this.questionService.updateQuestion(this.question , this.question.id);
-          console.log(e.id);
-          console.log(this.question.id);
-          console.log(this.question);
-        });
+        value.upvotes = 0;
+        // console.log(value);
+        if (value['ansSection'] !== undefined) {
+          console.log('pushed');
+          this.answerService.newAnswer(value).then( (e) => {
+            this.question.answers.push(e.id);
+            this.questionService.updateQuestion(this.question , this.question.id);
+            console.log(e.id);
+            // console.log(this.question.id);
+            // console.log(this.question);
+          });
+          this.ansSection = '';
+        }
       } else {
         this.router.navigate(['/login']);
       }

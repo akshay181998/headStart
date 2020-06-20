@@ -20,7 +20,7 @@ export class HomepageComponent implements OnInit {
     });
     this.questionService.getQuestion().subscribe(question => {
       console.log(question);
-    })
+    });
   }
 
 }

@@ -26,8 +26,8 @@
             <textarea 
             class="textarea" 
             placeholder="Add a comment..."
-            name="ans"
-            #ans = "ngModel"
+            #ansSection = "ngModel"
+            name="ansSection"
             [(ngModel)] = "answer.ans"></textarea>
           </p>
         </div>
@@ -52,7 +52,25 @@
 <br><br>
   <div class="container"  style="border: 1px solid black">
     <div class="container" *ngFor = "let ans of answers">
-      <h1 class="subscript">{{ ans.ans }}</h1>
+      <br><br>
+      <!-- <h1 class="subtitle">{{ ans.ans }}</h1> -->
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+              <br>
+              {{ ans.ansSection }}
+            </p>
+          </div>
+        </div>
+      </article>
+      <hr>
     </div>
   </div>
 </div>
