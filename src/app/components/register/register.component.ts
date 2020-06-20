@@ -69,4 +69,17 @@ export class RegisterComponent implements OnInit {
       this.flashMessage.show(err.message , { cssClass: 'notification is-danger', timeout: 5000});
     });
   }
+
+  clk() {
+    this.authService.registerWithGoogle();
+    this.authService.getAuth().subscribe(auth => {
+      console.log(auth);
+      this.pro.id = auth.uid;
+      this.pro.email = auth.email;
+      this.pro.img = auth.photoURL;
+      this.pro.firstName = auth.displayName;
+      this.profileService.newProfile(this.pro , this.pro.id);
+      this.router.navigate(['/profile/personal']);
+    });
+  }
 }

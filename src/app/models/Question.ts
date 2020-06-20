@@ -5,6 +5,6 @@ export interface Question {
      description?: string;
      authId?: string;
      date?: any;
-     answers?: [];
+     answers?: string[];
      upvote?: number;
 }

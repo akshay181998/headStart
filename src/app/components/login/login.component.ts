@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.authService.getAuth().subscribe(auth => {
       if (auth) {
+        // console.log(auth.photoURL);
+        // console.log(auth);
         this.router.navigate(['/']);
       }
     });
@@ -36,5 +38,11 @@ export class LoginComponent implements OnInit {
     .catch( err => {
       this.flashMessages.show(err.message , { cssClass: 'notification is-danger', timout: 1000});
     });
+  }
+
+  clk() {
+    this.authService.registerWithGoogle();
+    this.flashMessages.show('you are logged in', {  cssClass: 'notification is-success', timeout: 1000});
+    this.router.navigate(['/']);
   }
 }

@@ -2,8 +2,34 @@ footer {
    position: relative;
    left:0;
    bottom:0;
-   height:100px;
    width:100%;
    background:#000!important;
    margin-top:50px;
+   color: rgb(187, 187, 187);
+   margin-bottom: 0px;
+   padding-bottom: 0px;
+}
+
+hr {
+   background: #392c18;
+}
+
+i {
+   width: 60px;
+   height: 60px;
+   background: rgb(187, 187, 187);
+   margin: 15px;
+   font-size: 35px;
+   color: #000000;
+   text-align: center;
+   border-radius: 2rem;
+   padding-top:12px;
+}
+
+.subtitle {
+   color: rgb(187, 187, 187);
+}
+
+a {
+   color: rgb(187, 187, 187);
 }

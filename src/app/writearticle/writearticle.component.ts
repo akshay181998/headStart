@@ -17,6 +17,7 @@ import { Profile } from '../models/Profile';
   styleUrls: ['./writearticle.component.css']
 })
 export class WritearticleComponent implements OnInit {
+  str: '';
   article: Article = {
     uid: '',
     date: 0,
@@ -110,7 +111,9 @@ export class WritearticleComponent implements OnInit {
   uploadFile(event) {
     this.chg = true;
     this.file = event.target.files[0];
-    this.filePath = '/img/' + this.file.name ;
+    // console.log(this.file['name']);
+    // this.str = ;
+    this.filePath = '/img/' + this.file['name'] ;
     this.fileRef = this.storage.ref(this.filePath);
     this.task = this.storage.upload(this.filePath, this.file);
     // observe percentage changes
