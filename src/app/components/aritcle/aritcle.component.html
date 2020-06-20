@@ -1,14 +1,25 @@
 <br>
 <!-- <div class="blk">
 <div class="blk1"> -->
-  <a routerLink = "/article" style="font-size: 1.5rem;"><i class="fa fa-arrow-circle-left"></i> back</a>
+  <br><br>
+  <div class="columns">
+    <div class="column is-2">
+      <a routerLink = "/article" style="font-size: 1.5rem;"><i class="fa fa-arrow-circle-left"></i> back</a>
+    </div>
+    <div class="column has-text-centered">
+      <h1 class="title has-text-weight-bold" style=" text-transform: capitalize; font-size:4.5em">{{ article.title }}</h1>
+    </div>
+    <div class="column has-text-centered is-2">
+      <h1 style="text-transform: capitalize;" class="title is-4">{{ article.name }}</h1>
+      <p class="subtitle is-5">{{ article.date }}</p>
+    </div>
+  </div>
+<br>
 <!-- </div>
 <div class="blk2">
   <article class="media">
     <figure class="media-left">
-      <p class="image is-64x64" >
-        <img src="{{ author.img }}">
-      </p>
+
     </figure>
     <div class="media-content">
       <div class="content">
@@ -37,20 +48,14 @@
 </div> -->
 
 
-<div class="container" style="font-family: serif; max-width:800px">
-<br><br>
-      <h1 class="title has-text-centered has-text-weight-bold is-size-1" style="margin-bottom: 15px; text-transform: capitalize;">{{ article.title }}</h1>
-     <img src="{{ article.img }}" style="margin-left: 15%; width:70%">
-     <div class="container" [innerHTML]="article.content" style="width: 90%; margin-top: 0px;"></div>
+<div class="container" style ="max-width:800px">
+     <img src="{{ article.img }}" style="margin-left:5%; width:90%">
+     <br><br><br>
+     <div class="subtitle" [innerHTML]="article.content" style="width: 90%; margin-top: 0px;"></div>
     <br>
-     <p class="container" style="width: 90%;">
-      <span style="font-size: 25px; text-transform: capitalize;">{{ article.name }}</span>
-      <br>
-      {{ article.date }}
-    </p>
-     <br>
-     <!-- {{ article.date }} -->
 
+     <!-- {{ article.date }} -->
+<!-- 
      <article class="media" style="margin: auto; max-width: 90%;">
           <div class="media-content">
             <div class="field">
@@ -75,6 +80,6 @@
           </div>
      </article>    
      <br><br>
-     <button class="button is-fullwidth">click me</button> 
+     <button class="button is-fullwidth">click me</button>  -->
      <br><br>
 </div>

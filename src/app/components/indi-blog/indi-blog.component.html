@@ -55,18 +55,12 @@
       <br><br>
       <!-- <h1 class="subtitle">{{ ans.ans }}</h1> -->
       <article class="media">
-        <figure class="media-left">
-          <p class="image is-64x64">
-            <img src="https://bulma.io/images/placeholders/128x128.png">
-          </p>
-        </figure>
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+              <strong class="title is-5">{{ ans.authName }}</strong>   <small>{{ ans.date }}</small>
               <br>
-              {{ ans.ansSection }}
-            </p>
+              <p class="subtitle">{{ ans.ansSection }}</p>
           </div>
         </div>
       </article>

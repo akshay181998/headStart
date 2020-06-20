@@ -4,4 +4,5 @@ export interface Answer {
      qid?: string;
      upvotes?: number;
      date?: any;
+     authName: string;
 }
